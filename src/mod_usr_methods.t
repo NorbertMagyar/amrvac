@@ -101,7 +101,7 @@ module mod_usr_methods
 
      !> special boundary types, users must assign conservative
      !> variables in boundaries
-     subroutine special_bc(qt,ixI^L,ixO^L,iB,w,x)
+     subroutine special_bc(qt,ixI^L,ixO^L,iB,w,x,qdt)
        use mod_global_parameters
        !> Shape of input arrays
        integer, intent(in)             :: ixI^L
@@ -109,7 +109,7 @@ module mod_usr_methods
        integer, intent(in)             :: ixO^L
        !> Integer indicating direction of boundary
        integer, intent(in)             :: iB
-       double precision, intent(in)    :: qt, x(ixI^S,1:ndim)
+       double precision, intent(in)    :: qt,qdt,x(ixI^S,1:ndim)
        double precision, intent(inout) :: w(ixI^S,1:nw)
      end subroutine special_bc
 

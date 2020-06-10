@@ -775,6 +775,19 @@ contains
       gradq(ixO^S)=(q(jxO^S)-q(ixO^S))/dxlevel(idir)
     case(Cartesian_stretched)
       gradq(ixO^S)=(q(jxO^S)-q(ixO^S))/(x(jxO^S,idir)-x(ixO^S,idir))
+    case(spherical_narrow)
+      select case(idir)
+      case(1)
+        gradq(ixO^S)=(q(jxO^S)-q(ixO^S))/(x(jxO^S,1)-x(ixO^S,1))
+        {^NOONED
+      case(2)
+        gradq(ixO^S)=(q(jxO^S)-q(ixO^S))/( (x(jxO^S,2)-x(ixO^S,2))*x(ixO^S,1) )
+        }
+        {^IFTHREED
+      case(3)
+        gradq(ixO^S)=(q(jxO^S)-q(ixO^S))/( (x(jxO^S,3)-x(ixO^S,3))*x(ixO^S,1) )
+        }
+      end select
     case(spherical)
       select case(idir)
       case(1)

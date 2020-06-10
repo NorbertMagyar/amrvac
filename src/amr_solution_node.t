@@ -446,6 +446,27 @@ subroutine alloc_node(igrid)
       ps(igrid)%dsC(ixGext^S,1:ndim)=ps(igrid)%dx(ixGext^S,1:ndim)
       psc(igrid)%dvolume(ixCoG^S)= {^D&psc(igrid)%dx(ixCoG^S,^D)|*}
       psc(igrid)%ds(ixCoG^S,1:ndim)=psc(igrid)%dx(ixCoG^S,1:ndim)
+    case (spherical_narrow)
+      ps(igrid)%dvolume(ixGext^S)=(xext(ixGext^S,1)**2 &
+                                +ps(igrid)%dx(ixGext^S,1)**2/12.0d0)*&
+              ps(igrid)%dx(ixGext^S,1){^NOONED &
+             *ps(igrid)%dx(ixGext^S,2)}{^IFTHREED*ps(igrid)%dx(ixGext^S,3)}
+      psc(igrid)%dvolume(ixCoG^S)=(psc(igrid)%x(ixCoG^S,1)**2 &
+                                       +psc(igrid)%dx(ixCoG^S,1)**2/12.0d0)*&
+              psc(igrid)%dx(ixCoG^S,1){^NOONED &
+             *psc(igrid)%dx(ixCoG^S,2)}{^IFTHREED*psc(igrid)%dx(ixCoG^S,3)}
+      ps(igrid)%ds(ixGext^S,1)=ps(igrid)%dx(ixGext^S,1)
+      {^NOONED   ps(igrid)%ds(ixGext^S,2)=xext(ixGext^S,1)*ps(igrid)%dx(ixGext^S,2)}
+      {^IFTHREED ps(igrid)%ds(ixGext^S,3)=xext(ixGext^S,1)*ps(igrid)%dx(ixGext^S,3)}
+      ps(igrid)%dsC(ixGext^S,1)=ps(igrid)%dx(ixGext^S,1)
+      {^NOONED   ps(igrid)%dsC(ixGext^S,2)=(xext(ixGext^S,1)+half*ps(igrid)%dx(ixGext^S,1))*&
+                                          ps(igrid)%dx(ixGext^S,2)
+      if(ndir>ndim) then
+        ps(igrid)%dsC(ixGext^S,3)=(xext(ixGext^S,1)+half*ps(igrid)%dx(ixGext^S,1))
+      end if
+      }
+      {^IFTHREED ps(igrid)%dsC(ixGext^S,3)=(xext(ixGext^S,1)+half*ps(igrid)%dx(ixGext^S,1))*&
+                                       ps(igrid)%dx(ixGext^S,3)}
     case (spherical)
       ps(igrid)%dvolume(ixGext^S)=(xext(ixGext^S,1)**2 &
                                 +ps(igrid)%dx(ixGext^S,1)**2/12.0d0)*&

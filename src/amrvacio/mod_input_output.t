@@ -868,7 +868,7 @@ contains
 
     select case (coordinate)
        {^NOONED
-    case (spherical)
+    case (spherical,spherical_narrow)
        xprob^LIM^DE=xprob^LIM^DE*two*dpi;
        \}
     case (cylindrical)

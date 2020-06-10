@@ -241,7 +241,7 @@ subroutine bc_phys(iside,idims,time,qdt,s,ixG^L,ixB^L)
   if (any(typeboundary(1:nwflux+nwaux,iB)=="special")) then
      if (.not. associated(usr_special_bc)) &
           call mpistop("usr_special_bc not defined")
-     call usr_special_bc(time,ixG^L,ixO^L,iB,w,x)
+     call usr_special_bc(time,ixG^L,ixO^L,iB,w,x,qdt)
   end if
 
   ! fill boundary conditions from external data vtk files

@@ -2207,6 +2207,86 @@ contains
         w(ixO^S,mr_)=w(ixO^S,mr_)+qdt/x(ixO^S,1)*tmp(ixO^S)
       end if
       if(mhd_glm) w(ixO^S,br_)=w(ixO^S,br_)+qdt*wCT(ixO^S,psi_)/x(ixO^S,1)
+    case (spherical_narrow)
+       h1x^L=ixO^L-kr(1,^D); {^NOONED h2x^L=ixO^L-kr(2,^D);}
+       call mhd_get_p_total(wCT,x,ixI^L,ixO^L,tmp1)
+       tmp(ixO^S)=tmp1(ixO^S)
+       if(B0field) then
+         tmp2(ixO^S)=sum(block%B0(ixO^S,:,0)*wCT(ixO^S,mag(:)),dim=ndim+1)
+         tmp(ixO^S)=tmp(ixO^S)+tmp2(ixO^S)
+       end if
+       ! m1
+       tmp(ixO^S)=tmp(ixO^S)*x(ixO^S,1) &
+                  *(block%surfaceC(ixO^S,1)-block%surfaceC(h1x^S,1))/block%dvolume(ixO^S)
+       if(ndir>1) then
+         do idir=2,ndir
+           tmp(ixO^S)=tmp(ixO^S)+wCT(ixO^S,mom(idir))**2/wCT(ixO^S,rho_)-wCT(ixO^S,mag(idir))**2
+           if(B0field) tmp(ixO^S)=tmp(ixO^S)-2.0d0*block%B0(ixO^S,idir,0)*wCT(ixO^S,mag(idir))
+         end do
+       end if
+       w(ixO^S,mom(1))=w(ixO^S,mom(1))+qdt*tmp(ixO^S)/x(ixO^S,1)
+       ! b1
+       if(mhd_glm) then
+         w(ixO^S,mag(1))=w(ixO^S,mag(1))+qdt/x(ixO^S,1)*2.0d0*wCT(ixO^S,psi_)
+       end if
+
+       {^NOONED
+       ! m2
+       tmp(ixO^S)=tmp1(ixO^S)
+       if(B0field) then
+         tmp(ixO^S)=tmp(ixO^S)+tmp2(ixO^S)
+       end if
+       ! This will make hydrostatic p=const an exact solution
+       w(ixO^S,mom(2))=w(ixO^S,mom(2))+qdt*tmp(ixO^S) &
+            *(block%surfaceC(ixO^S,2)-block%surfaceC(h2x^S,2)) &
+            /block%dvolume(ixO^S)
+       tmp(ixO^S)=-(wCT(ixO^S,mom(1))*wCT(ixO^S,mom(2))/wCT(ixO^S,rho_) &
+            -wCT(ixO^S,mag(1))*wCT(ixO^S,mag(2)))
+       if (B0field) then
+          tmp(ixO^S)=tmp(ixO^S)+block%B0(ixO^S,1,0)*wCT(ixO^S,mag(2)) &
+               +wCT(ixO^S,mag(1))*block%B0(ixO^S,2,0)
+       end if
+       w(ixO^S,mom(2))=w(ixO^S,mom(2))+qdt*tmp(ixO^S)/x(ixO^S,1)
+       ! b2
+       if(.not.stagger_grid) then
+         tmp(ixO^S)=(wCT(ixO^S,mom(1))*wCT(ixO^S,mag(2)) &
+              -wCT(ixO^S,mom(2))*wCT(ixO^S,mag(1)))/wCT(ixO^S,rho_)
+         if(B0field) then
+           tmp(ixO^S)=tmp(ixO^S)+(wCT(ixO^S,mom(1))*block%B0(ixO^S,2,0) &
+                -wCT(ixO^S,mom(2))*block%B0(ixO^S,1,0))/wCT(ixO^S,rho_)
+         end if
+         if(mhd_glm) then
+           tmp(ixO^S)=tmp(ixO^S) &
+                + dcos(x(ixO^S,2))/dsin(x(ixO^S,2))*wCT(ixO^S,psi_)
+         end if
+         w(ixO^S,mag(2))=w(ixO^S,mag(2))+qdt*tmp(ixO^S)/x(ixO^S,1)
+       end if
+       }
+
+       if(ndir==3) then
+         ! m3
+         if(.not.angmomfix) then
+           tmp(ixO^S)=-(wCT(ixO^S,mom(3))*wCT(ixO^S,mom(1))/wCT(ixO^S,rho_) &
+                -wCT(ixO^S,mag(3))*wCT(ixO^S,mag(1))) 
+           if (B0field) then
+              tmp(ixO^S)=tmp(ixO^S)+block%B0(ixO^S,1,0)*wCT(ixO^S,mag(3)) &
+                   +wCT(ixO^S,mag(1))*block%B0(ixO^S,3,0) 
+           end if
+           w(ixO^S,mom(3))=w(ixO^S,mom(3))+qdt*tmp(ixO^S)/x(ixO^S,1)
+         else
+           call mpistop("angmomfix not implemented yet in MHD")
+         end if
+         ! b3
+         if(.not.stagger_grid) then
+           tmp(ixO^S)=(wCT(ixO^S,mom(1))*wCT(ixO^S,mag(3)) &
+                -wCT(ixO^S,mom(3))*wCT(ixO^S,mag(1)))/wCT(ixO^S,rho_) 
+           if (B0field) then
+              tmp(ixO^S)=tmp(ixO^S)+(wCT(ixO^S,mom(1))*block%B0(ixO^S,3,0) &
+                   -wCT(ixO^S,mom(3))*block%B0(ixO^S,1,0))/wCT(ixO^S,rho_)
+           end if
+           w(ixO^S,mag(3))=w(ixO^S,mag(3))+qdt*tmp(ixO^S)/x(ixO^S,1)
+         end if
+       end if
     case (spherical)
        h1x^L=ixO^L-kr(1,^D); {^NOONED h2x^L=ixO^L-kr(2,^D);}
        call mhd_get_p_total(wCT,x,ixI^L,ixO^L,tmp1)

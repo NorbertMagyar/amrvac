@@ -239,7 +239,7 @@ contains
                 w_TEC(iw)=wC(ix^D,iw)
              end if
           end do
-       case (spherical)
+       case (spherical,spherical_narrow)
           x_TEC(1)=xC(ix^D,1){^NOONED*sin(xC(ix^D,2))}{^IFTHREED*cos(xC(ix^D,3))}
           {^IFTWOD
           x_TEC(2)=xC(ix^D,1)*cos(xC(ix^D,2))}
