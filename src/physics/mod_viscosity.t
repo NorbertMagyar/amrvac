@@ -144,6 +144,10 @@ contains
 }
           endif
         endif
+        if (coordinate==spherical_narrow) then
+          if     (idim==r_  .and. (idir==2 .or. idir==phi_)) then
+            tmp(ixI^S) = tmp(ixI^S)/x(ixI^S,1)
+          endif
         call gradient(tmp,ixI^L,ix^L,idim,tmp2)
         ! Correction for Christoffel terms in non-cartesian
         if (coordinate==cylindrical .and. idim==r_  .and. idir==phi_  ) tmp2(ix^S)=tmp2(ix^S)*x(ix^S,1)
@@ -199,6 +203,10 @@ contains
                 if (idim==2  .and. idir==phi_               ) tmp(ix^S) = tmp(ix^S)*dsin(x(ix^S,2))**two
 }
               endif
+              if (coordinate==spherical_narrow) then
+                if (idim==r_ .and. idir==r_                 ) tmp(ix^S) = tmp(ix^S)*x(ix^S,1)**two
+                if (idim==r_ .and. (idir==2 .or. idir==phi_)) tmp(ix^S) = tmp(ix^S)*x(ix^S,1)**3.d0
+              endif
               call gradient(tmp,ixI^L,ixO^L,idim,tmp2)
               ! Correction for divergence of a tensor
               if (coordinate==cylindrical .and. idim==r_ .and. (idir==r_ .or. idir==z_)) tmp2(ixO^S) = tmp2(ixO^S)/x(ixO^S,1)
@@ -211,10 +219,15 @@ contains
                 if (idim==2  .and. idir==phi_               ) tmp2(ixO^S) = tmp2(ixO^S)/(dsin(x(ixO^S,2))**two)
 }
               endif
+              if (coordinate==spherical_narrow) then
+                if (idim==r_ .and. idir==r_                 ) tmp2(ixO^S) = tmp2(ixO^S)/(x(ixO^S,1)**two)
+                if (idim==r_ .and. (idir==2 .or. idir==phi_)) tmp2(ixO^S) = tmp2(ixO^S)/(x(ixO^S,1)**3.d0)
+              endif
               w(ixO^S,mom(idir))=w(ixO^S,mom(idir))+tmp2(ixO^S)
         enddo
         ! Correction for geometrical terms in the div of a tensor
         if (coordinate==cylindrical .and. idir==r_  ) w(ixO^S,mom(idir))=w(ixO^S,mom(idir))-lambda(ixO^S,phi_,phi_)/x(ixO^S,1)
+        if (coordinate==spherical_narrow   .and. idir==r_  ) w(ixO^S,mom(idir))=w(ixO^S,mom(idir))-(lambda(ixO^S,2,2)+lambda(ixO^S,phi_,phi_))/x(ixO^S,1)
         if (coordinate==spherical   .and. idir==r_  ) w(ixO^S,mom(idir))=w(ixO^S,mom(idir))-(lambda(ixO^S,2,2)+lambda(ixO^S,phi_,phi_))/x(ixO^S,1)
 {^NOONED
         if (coordinate==spherical   .and. idir==2   ) w(ixO^S,mom(idir))=w(ixO^S,mom(idir))-lambda(ixO^S,phi_,phi_)/(x(ixO^S,1)/dtan(x(ixO^S,2)))
@@ -370,6 +383,80 @@ contains
         v(ixI^S)=w(ixI^S,mom(2))  ! v_th
         call gradient(v,ixI^L,ixO^L,3,tmp) ! d_z
         cross(ixI^S,2)=cross(ixI^S,2)+tmp(ixI^S)
+        }
+      endif
+    case (spherical_narrow)
+      if (idim==1) then
+        ! rr (normal, simply 2 * dr vr)
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        call gradient(v,ixI^L,ixO^L,1,tmp) ! d_r
+        cross(ixI^S,1)=two*tmp(ixI^S)
+        !rth
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        {^NOONED
+        call gradient(v,ixI^L,ixO^L,2,tmp) ! d_th (rq : already contains 1/r)
+        cross(ixI^S,2)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(2))/x(ixI^S,1)  ! v_th / r
+        call gradient(v,ixI^L,ixO^L,1,tmp) ! d_r
+        cross(ixI^S,2)=cross(ixI^S,2)+tmp(ixI^S)*x(ixI^S,1)
+        }
+        {^IFTHREED
+        !rph
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        call gradient(v,ixI^L,ixO^L,3,tmp) ! d_phi (rq : contains 1/rsin(th))
+        cross(ixI^S,3)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(3))/x(ixI^S,1) ! v_phi / r
+        call gradient(v,ixI^L,ixO^L,1,tmp) ! d_r
+        cross(ixI^S,3)=cross(ixI^S,3)+tmp(ixI^S)*x(ixI^S,1)
+        }
+      elseif (idim==2) then
+        ! thr
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        {^NOONED
+        call gradient(v,ixI^L,ixO^L,2,tmp) ! d_th (rq : already contains 1/r)
+        cross(ixI^S,1)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(2))/x(ixI^S,1)  ! v_th / r
+        call gradient(v,ixI^L,ixO^L,1,tmp) ! d_r
+        cross(ixI^S,1)=cross(ixI^S,1)+tmp(ixI^S)*x(ixI^S,1)
+        ! thth
+        v(ixI^S)=w(ixI^S,mom(2)) ! v_th
+        call gradient(v,ixI^L,ixO^L,2,tmp) ! d_th
+        cross(ixI^S,2)=two*tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        cross(ixI^S,2)=cross(ixI^S,2)+two*v(ixI^S)/x(ixI^S,1) ! + 2 vr/r
+        }
+        {^IFTHREED
+        !thph
+        v(ixI^S)=w(ixI^S,mom(2)) ! v_th
+        call gradient(v,ixI^L,ixO^L,3,tmp) ! d_phi (rq : contains 1/rsin(th))
+        cross(ixI^S,3)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(3)) ! v_ph / sin(th)
+        call gradient(v,ixI^L,ixO^L,2,tmp) ! d_th
+        cross(ixI^S,3)=cross(ixI^S,3)+tmp(ixI^S)
+        }
+        {^IFTHREED
+      elseif (idim==3) then
+        !phr
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        call gradient(v,ixI^L,ixO^L,3,tmp) ! d_phi
+        cross(ixI^S,1)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(3))/x(ixI^S,1) ! v_phi / r
+        call gradient(v,ixI^L,ixO^L,1,tmp) ! d_r
+        cross(ixI^S,1)=cross(ixI^S,1)+tmp(ixI^S)*x(ixI^S,1)
+        !phth
+        v(ixI^S)=w(ixI^S,mom(2)) ! v_th
+        call gradient(v,ixI^L,ixO^L,3,tmp) ! d_phi
+        cross(ixI^S,2)=tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(3))/dsin(x(ixI^S,2)) ! v_ph / sin(th)
+        call gradient(v,ixI^L,ixO^L,2,tmp) ! d_th
+        cross(ixI^S,2)=cross(ixI^S,2)+tmp(ixI^S)
+        !phph
+        v(ixI^S)=w(ixI^S,mom(3)) ! v_ph
+        call gradient(v,ixI^L,ixO^L,3,tmp) ! d_phi
+        cross(ixI^S,3)=two*tmp(ixI^S)
+        v(ixI^S)=w(ixI^S,mom(1)) ! v_r
+        cross(ixI^S,3)=cross(ixI^S,3)+two*v(ixI^S)/x(ixI^S,1) ! + 2 vr/r
+        v(ixI^S)=w(ixI^S,mom(2)) ! v_th
         }
       endif
     case (spherical)
@@ -584,6 +671,65 @@ contains
         tmp(ixO^S)=tmp(ixO^S)+tmp1(ixO^S)*dsin(x(ixO^S,2))
         ! s[mphi]=+cotanth*phith/radius
         w(ixO^S,mom(3))=w(ixO^S,mom(3))+qdt*vc_mu*tmp(ixO^S)/(x(ixO^S,1)*dtan(x(ixO^S,2)))
+}
+      endif
+    case (spherical_narrow)
+      ! get the velocity components
+      do i=1,ndir
+       v(ixI^S,i)=wCT(ixI^S,mom(i))/wCT(ixI^S,rho_)
+      enddo
+      ! thth tensor term - - -
+      ! 1st the cross grad term
+      vv(ixI^S)=v(ixI^S,2) ! v_th
+{^NOONED
+      call gradient(vv,ixI^L,ixO^L,2,tmp1) ! d_th
+      tmp(ixO^S)=two*(tmp1(ixO^S)+v(ixO^S,1)/x(ixO^S,1)) ! 2 ( 1/r * d_th v_th + vr/r )
+      ! 2nd the divergence
+      call divvector(v,ixI^L,ixO^L,divergence)
+      tmp(ixO^S) = tmp(ixO^S) - (2.d0/3.d0) * divergence(ixO^S)
+      ! s[mr]=-thth/radius
+      w(ixO^S,mom(1))=w(ixO^S,mom(1))-qdt*vc_mu*tmp(ixO^S)/x(ixO^S,1)
+}
+      ! phiphi tensor term - - -
+      ! 1st the cross grad term
+      vv(ixI^S)=v(ixI^S,3) ! v_ph
+{^IFTHREED
+      call gradient(vv,ixI^L,ixO^L,3,tmp1) ! d_phi
+      tmp(ixO^S)=two*(tmp1(ixO^S)+v(ixO^S,1)/x(ixO^S,1)) ! 2 ( 1/rsinth * d_ph v_ph + vr/r + vth/rtanth )
+}
+      ! 2nd the divergence
+      tmp(ixO^S) = tmp(ixO^S) - (2.d0/3.d0) * divergence(ixO^S)
+      ! s[mr]=-phiphi/radius
+      w(ixO^S,mom(1))=w(ixO^S,mom(1))-qdt*vc_mu*tmp(ixO^S)/x(ixO^S,1)
+      ! s[mth]=-cotanth*phiphi/radius
+      if (.not. angmomfix) then
+        ! rth tensor term - - -
+        vv(ixI^S)=v(ixI^S,1) ! v_r
+        call gradient(vv,ixI^L,ixO^L,2,tmp) ! d_th (rq : already contains 1/r)
+        vv(ixI^S)=v(ixI^S,2)/x(ixI^S,1)  ! v_th / r
+        call gradient(vv,ixI^L,ixO^L,1,tmp1) ! d_r
+        tmp(ixO^S)=tmp(ixO^S)+tmp1(ixO^S)*x(ixO^S,1)
+        ! s[mth]=+rth/radius
+        w(ixO^S,mom(2))=w(ixO^S,mom(2))+qdt*vc_mu*tmp(ixO^S)/x(ixO^S,1)
+        ! rphi tensor term - - -
+        vv(ixI^S)=v(ixI^S,1) ! v_r
+{^IFTHREED
+        call gradient(vv,ixI^L,ixO^L,3,tmp) ! d_phi (rq : contains 1/rsin(th))
+}
+        vv(ixI^S)=v(ixI^S,3)/x(ixI^S,1) ! v_phi / r
+        call gradient(vv,ixI^L,ixO^L,1,tmp1) ! d_r
+        tmp(ixO^S)=tmp(ixO^S)+tmp1(ixO^S)*x(ixO^S,1)
+        ! s[mphi]=+rphi/radius
+        w(ixO^S,mom(3))=w(ixO^S,mom(3))+qdt*vc_mu*tmp(ixO^S)/x(ixO^S,1)
+        ! phith tensor term - - -
+        vv(ixI^S)=v(ixI^S,2) ! v_th
+{^IFTHREED
+        call gradient(vv,ixI^L,ixO^L,3,tmp) ! d_phi
+}
+{^NOONED
+        vv(ixI^S)=v(ixI^S,3) ! v_ph / sin(th)
+        call gradient(vv,ixI^L,ixO^L,2,tmp1) ! d_th
+        tmp(ixO^S)=tmp(ixO^S)+tmp1(ixO^S)
 }
       endif
     end select
