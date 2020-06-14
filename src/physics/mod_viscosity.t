@@ -148,6 +148,7 @@ contains
           if     (idim==r_  .and. (idir==2 .or. idir==phi_)) then
             tmp(ixI^S) = tmp(ixI^S)/x(ixI^S,1)
           endif
+        endif
         call gradient(tmp,ixI^L,ix^L,idim,tmp2)
         ! Correction for Christoffel terms in non-cartesian
         if (coordinate==cylindrical .and. idim==r_  .and. idir==phi_  ) tmp2(ix^S)=tmp2(ix^S)*x(ix^S,1)

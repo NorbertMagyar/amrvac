@@ -144,7 +144,7 @@ contains
         end if
         if ((xprobmax2-xprobmin2)>0.05*2.d0*dpi) then
           if(mype==0) write(unitterm,*) &
-                "Warning, spherical_narrow should only be used for small angles! (dtheta <= 18 deg)"
+                "Warning, spherical_narrow should only be used for small angles!"
         end if
       end if}
     case (cylindrical)
