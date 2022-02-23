@@ -8,7 +8,8 @@ module mod_geometry
   integer, parameter :: Cartesian_stretched= 1
   integer, parameter :: cylindrical        = 2
   integer, parameter :: spherical          = 3
-  integer, parameter :: spherical_narrow   = 4
+  
+  integer, parameter :: spherical_narrow   = 5
 
 contains
 
