@@ -493,6 +493,7 @@ subroutine alloc_node(igrid)
       {^IFTHREED ps(igrid)%dsC(ixGext^S,3)=(xext(ixGext^S,1)+half*ps(igrid)%dx(ixGext^S,1))*&
                                        dsin(xext(ixGext^S,2)+half*ps(igrid)%dx(ixGext^S,2))*&
                                        ps(igrid)%dx(ixGext^S,3)}
+                                       
     case (cylindrical)
       ps(igrid)%dvolume(ixGext^S)=dabs(xext(ixGext^S,1)) &
            *ps(igrid)%dx(ixGext^S,1){^DE&*ps(igrid)%dx(ixGext^S,^DE) }
