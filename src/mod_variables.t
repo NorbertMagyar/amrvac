@@ -65,6 +65,12 @@ module mod_variables
 
   !> Indices of the magnetic field components
   integer, allocatable, protected :: iw_mag(:)
+  
+  !> Index of wplus
+  integer :: iw_wplus = -1
+  
+  !> Index of wminus
+  integer :: iw_wminus = -1
 
   !> Index of the cutoff temperature for the TRAC method
   integer :: iw_tcoff = -1
@@ -258,5 +264,31 @@ contains
     cons_wnames(nwflux) = 'eaux'
     prim_wnames(nwflux) = 'paux'
   end function var_set_internal_energy
+
+  !> For the UAWSOM physics module, set W+ and W-
+  
+  function var_set_wplus() result(iw)
+    integer :: iw
+
+    nwflux              = nwflux + 1
+    nwfluxbc            = nwfluxbc + 1
+    nw                  = nw + 1
+    iw_wplus            = nwflux
+    iw                  = nwflux
+    prim_wnames(nwflux) = 'wplus'
+    cons_wnames(nwflux) = 'wplus'
+  end function var_set_wplus
+  
+  function var_set_wminus() result(iw)
+    integer :: iw
+
+    nwflux              = nwflux + 1
+    nwfluxbc            = nwfluxbc + 1
+    nw                  = nw + 1
+    iw_wminus           = nwflux
+    iw                  = nwflux
+    prim_wnames(nwflux) = 'wminus'
+    cons_wnames(nwflux) = 'wminus'
+  end function var_set_wminus
 
 end module mod_variables
