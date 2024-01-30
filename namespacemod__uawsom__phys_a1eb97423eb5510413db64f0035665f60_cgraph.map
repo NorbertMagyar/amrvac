@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::update_faces_hll" name="mod_uawsom_phys::update_faces_hll">
+<area shape="rect" id="node1" title="update faces" alt="" coords="5,71,209,112"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a62d8ae4bc2f7c2aebaf5bdd08d5f0d21" title="get ambipolar electric field on cell edges" alt="" coords="265,5,450,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#ad281e8fcd04595e70a311c468d10051c" title="calculate eta J at cell edges" alt="" coords="267,71,447,112"/>
+<area shape="rect" id="node4" href="$namespacemod__constrained__transport.html#ae0d99ce25d3a609e5e1e51dc97c9b4c8" title="Reconstruct scalar q within ixO^L to 1/2 dx in direction idir Return both left and right reconstructe..." alt="" coords="257,136,457,177"/>
+</map>

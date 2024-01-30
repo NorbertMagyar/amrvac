@@ -110,6 +110,11 @@ Functions/Subroutines</h2></td></tr>
 <tr class="memitem:af6556768ceafeae6acf37e6afe30f0b6"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#af6556768ceafeae6acf37e6afe30f0b6">var_set_internal_energy</a> ()</td></tr>
 <tr class="memdesc:af6556768ceafeae6acf37e6afe30f0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set internal energy variable.  <a href="namespacemod__variables.html#af6556768ceafeae6acf37e6afe30f0b6">More...</a><br /></td></tr>
 <tr class="separator:af6556768ceafeae6acf37e6afe30f0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e937bd43904ca7acbb070963d807e34"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a0e937bd43904ca7acbb070963d807e34">var_set_wplus</a> ()</td></tr>
+<tr class="memdesc:a0e937bd43904ca7acbb070963d807e34"><td class="mdescLeft">&#160;</td><td class="mdescRight">For the UAWSOM physics module, set W+ and W-.  <a href="namespacemod__variables.html#a0e937bd43904ca7acbb070963d807e34">More...</a><br /></td></tr>
+<tr class="separator:a0e937bd43904ca7acbb070963d807e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bda7ef2516ec5c1b8798e52a6f11835"><td class="memItemLeft" align="right" valign="top">integer function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a0bda7ef2516ec5c1b8798e52a6f11835">var_set_wminus</a> ()</td></tr>
+<tr class="separator:a0bda7ef2516ec5c1b8798e52a6f11835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
@@ -172,6 +177,12 @@ Variables</h2></td></tr>
 <tr class="memitem:a653576f4d89ed96d1d577cb5a6b239c2"><td class="memItemLeft" align="right" valign="top">integer, dimension(:), allocatable, protected&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a653576f4d89ed96d1d577cb5a6b239c2">iw_mag</a></td></tr>
 <tr class="memdesc:a653576f4d89ed96d1d577cb5a6b239c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indices of the magnetic field components.  <a href="namespacemod__variables.html#a653576f4d89ed96d1d577cb5a6b239c2">More...</a><br /></td></tr>
 <tr class="separator:a653576f4d89ed96d1d577cb5a6b239c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6735b457814ebfd18538dba1ca2dab12"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a6735b457814ebfd18538dba1ca2dab12">iw_wplus</a> = -1</td></tr>
+<tr class="memdesc:a6735b457814ebfd18538dba1ca2dab12"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of wplus.  <a href="namespacemod__variables.html#a6735b457814ebfd18538dba1ca2dab12">More...</a><br /></td></tr>
+<tr class="separator:a6735b457814ebfd18538dba1ca2dab12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d827fa93dabba4c2f57762cf283faa1"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a8d827fa93dabba4c2f57762cf283faa1">iw_wminus</a> = -1</td></tr>
+<tr class="memdesc:a8d827fa93dabba4c2f57762cf283faa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of wminus.  <a href="namespacemod__variables.html#a8d827fa93dabba4c2f57762cf283faa1">More...</a><br /></td></tr>
+<tr class="separator:a8d827fa93dabba4c2f57762cf283faa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a083b126e65f29634498948d96545e040"><td class="memItemLeft" align="right" valign="top">integer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacemod__variables.html#a083b126e65f29634498948d96545e040">iw_tcoff</a> = -1</td></tr>
 <tr class="memdesc:a083b126e65f29634498948d96545e040"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the cutoff temperature for the TRAC method.  <a href="namespacemod__variables.html#a083b126e65f29634498948d96545e040">More...</a><br /></td></tr>
 <tr class="separator:a083b126e65f29634498948d96545e040"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -227,7 +238,7 @@ Variables</h2></td></tr>
 
 <p>Set auxiliary variable, which is not advected but has boundary conditions. This has to be done after defining flux variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00154">154</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00160">160</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -249,7 +260,7 @@ Variables</h2></td></tr>
 
 <p>Set magnetic field variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00231">231</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00237">237</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -276,7 +287,7 @@ Here is the call graph for this function:</div>
 
 <p>Set energy variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00206">206</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00212">212</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -314,7 +325,7 @@ Here is the call graph for this function:</div>
 
 <p>Set extra variable in w, which is not advected and has no boundary conditions. This has to be done after defining flux variables and auxiliary variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00124">124</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00130">130</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -367,7 +378,7 @@ Here is the call graph for this function:</div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00097">97</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00103">103</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -385,7 +396,7 @@ Here is the call graph for this function:</div>
 
 <p>Set internal energy variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00251">251</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00257">257</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -407,7 +418,7 @@ Here is the call graph for this function:</div>
 
 <p>Set momentum variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00186">186</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00192">192</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -432,7 +443,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00218">218</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00224">224</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -450,7 +461,7 @@ Here is the call graph for this function:</div>
 
 <p>Set density variable. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00173">173</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00179">179</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -468,7 +479,41 @@ Here is the call graph for this function:</div>
 
 <p>Set extra variable in wextra, which is not advected and has no boundary conditions and not output in dat. This has to be done after defining flux variables and auxiliary variables. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00144">144</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00150">150</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+
+</div>
+</div>
+<a id="a0bda7ef2516ec5c1b8798e52a6f11835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bda7ef2516ec5c1b8798e52a6f11835">&#9670;&nbsp;</a></span>var_set_wminus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function mod_variables::var_set_wminus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00282">282</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+
+</div>
+</div>
+<a id="a0e937bd43904ca7acbb070963d807e34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e937bd43904ca7acbb070963d807e34">&#9670;&nbsp;</a></span>var_set_wplus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer function mod_variables::var_set_wplus</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>For the UAWSOM physics module, set W+ and W-. </p>
+
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00270">270</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -505,7 +550,7 @@ Here is the call graph for this function:</div>
 
 <p>index of the var whose velocity appears in the induction eq. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00078">78</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00084">84</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -557,7 +602,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00092">92</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00098">98</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -573,7 +618,7 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00091">91</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00097">97</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -663,7 +708,7 @@ Here is the call graph for this function:</div>
 
 <p>Index of the cutoff temperature for the TRAC method. </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00070">70</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00076">76</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -682,6 +727,42 @@ Here is the call graph for this function:</div>
 <p>Indices of vector variables. </p>
 
 <p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00035">35</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+
+</div>
+</div>
+<a id="a8d827fa93dabba4c2f57762cf283faa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d827fa93dabba4c2f57762cf283faa1">&#9670;&nbsp;</a></span>iw_wminus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer mod_variables::iw_wminus = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Index of wminus. </p>
+
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00073">73</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+
+</div>
+</div>
+<a id="a6735b457814ebfd18538dba1ca2dab12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6735b457814ebfd18538dba1ca2dab12">&#9670;&nbsp;</a></span>iw_wplus</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">integer mod_variables::iw_wplus = -1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Index of wplus. </p>
+
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00070">70</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -733,7 +814,7 @@ Here is the call graph for this function:</div>
 
 <p>number of species: each species has different characterictic speeds and should be used accordingly in <a class="el" href="namespacemod__finite__volume.html" title="Module with finite volume methods for fluxes.">mod_finite_volume</a> and <a class="el" href="namespacemod__finite__difference.html" title="Module with finite difference methods for fluxes.">mod_finite_difference</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00074">74</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00080">80</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -931,7 +1012,7 @@ Here is the call graph for this function:</div>
 
 <p>the indices in 1:nwflux array are assumed consecutive for each species this array should be of size number_species and contain the first index in the array of the number_species </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00083">83</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00089">89</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>
@@ -949,7 +1030,7 @@ Here is the call graph for this function:</div>
 
 <p>the indices in 1:nwflux array are assumed consecutive for each species this array should be of size number_species and contain the last index in the array of the first number_species, the last index for the last one is nwflux </p>
 
-<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00087">87</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mod__variables_8t_source.html#l00093">93</a> of file <a class="el" href="mod__variables_8t_source.html">mod_variables.t</a>.</p>
 
 </div>
 </div>

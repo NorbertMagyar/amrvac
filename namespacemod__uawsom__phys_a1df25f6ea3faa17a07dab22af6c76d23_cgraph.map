@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::get_ambipolar_dt" name="mod_uawsom_phys::get_ambipolar_dt">
+<area shape="rect" id="node1" title="Calculates the explicit dt for the ambipokar term This function is used by both explicit scheme and S..." alt="" coords="5,27,185,69"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#ad976e94876cf05e46be128feb1e8c12a" title="multiply res by the ambipolar coefficient The ambipolar coefficient is calculated as &#45;uawsom_eta_ambi..." alt="" coords="233,5,508,32"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a51092ecf7f8113e4ad9d87ab7c9cdca2" title="Compute 2 times total magnetic energy." alt="" coords="263,57,478,98"/>
+</map>

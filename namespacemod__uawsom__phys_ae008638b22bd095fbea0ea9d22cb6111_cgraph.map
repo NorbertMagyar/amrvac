@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::add_source_hyperres" name="mod_uawsom_phys::add_source_hyperres">
+<area shape="rect" id="node1" title="Add Hyper&#45;resistive source to w within ixO Uses 9 point stencil (4 neighbours) in each direction." alt="" coords="5,25,188,66"/>
+<area shape="rect" id="node2" href="$namespacemod__geometry.html#aabd378d228c27c5b83d0d14d9058661e" title="Calculate curl of a vector qvec within ixL Options to employ standard second order CD evaluations use..." alt="" coords="464,32,657,59"/>
+<area shape="rect" id="node3" href="$comm__lib_8t.html#a49b49ea9ffbbadfe688e332921c4cddd" title="Exit MPI&#45;AMRVAC with an error message." alt="" coords="705,62,780,88"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#aa60055c3ae4017bfb6453e30a3ed13a4" title="Calculate idirmin and the idirmin:3 components of the common current array make sure that dxlevel(^D)..." alt="" coords="236,25,416,66"/>
+</map>

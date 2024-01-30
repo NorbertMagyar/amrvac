@@ -1,0 +1,9 @@
+<map id="mod_uawsom_phys::uawsom_get_dt" name="mod_uawsom_phys::uawsom_get_dt">
+<area shape="rect" id="node1" title="If resistivity is not zero, check diffusion time limit for dt." alt="" coords="5,169,220,211"/>
+<area shape="rect" id="node2" href="$namespacemod__cak__force.html#a3342a8e2da21d6e48bd73851449898c9" title="Check time step for total radiation contribution." alt="" coords="283,5,435,47"/>
+<area shape="rect" id="node3" href="$namespacemod__radiative__cooling.html#a6ce0229b23f942e86c22b3c89f7f96dd" title=" " alt="" coords="273,71,444,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a1df25f6ea3faa17a07dab22af6c76d23" title="Calculates the explicit dt for the ambipokar term This function is used by both explicit scheme and S..." alt="" coords="269,136,449,177"/>
+<area shape="rect" id="node5" href="$namespacemod__uawsom__phys.html#aa60055c3ae4017bfb6453e30a3ed13a4" title="Calculate idirmin and the idirmin:3 components of the common current array make sure that dxlevel(^D)..." alt="" coords="269,201,449,243"/>
+<area shape="rect" id="node6" href="$namespacemod__gravity.html#a6567eb0ce75b7a2b770ab848461c6fb5" title=" " alt="" coords="280,267,437,308"/>
+<area shape="rect" id="node7" href="$namespacemod__viscosity.html#a3abc58754cd1fd2237da85b19407d595" title=" " alt="" coords="268,332,449,373"/>
+</map>

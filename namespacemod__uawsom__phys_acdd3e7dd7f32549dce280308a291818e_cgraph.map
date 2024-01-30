@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::uawsom_get_cbounds_split_rho" name="mod_uawsom_phys::uawsom_get_cbounds_split_rho">
+<area shape="rect" id="node1" title="Estimating bounds for the minimum and maximum signal velocities with rho split." alt="" coords="5,39,220,80"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a8a71dfb0c4ad4f31fa3cd732ba281e35" title="Calculate fast magnetosonic wave speed." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a4fa945517ccf53a40818d9ad1371d25b" title="Calculate fast magnetosonic wave speed." alt="" coords="268,71,483,112"/>
+</map>

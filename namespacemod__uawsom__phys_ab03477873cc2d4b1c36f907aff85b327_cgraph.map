@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::uawsom_get_cmax_origin" name="mod_uawsom_phys::uawsom_get_cmax_origin">
+<area shape="rect" id="node1" title="Calculate cmax_idim=csound+abs(v_idim) within ixO^L." alt="" coords="5,39,220,80"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a8a71dfb0c4ad4f31fa3cd732ba281e35" title="Calculate fast magnetosonic wave speed." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a8844619cf12b02284fb26faa77a4dc0f" title="Calculate v component." alt="" coords="268,71,483,112"/>
+</map>

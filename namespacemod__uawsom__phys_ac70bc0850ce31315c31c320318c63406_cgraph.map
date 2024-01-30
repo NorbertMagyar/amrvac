@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::internal_energy_add_source" name="mod_uawsom_phys::internal_energy_add_source">
+<area shape="rect" id="node1" title=" " alt="" coords="5,78,215,119"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a0947a2e6568a5af33a309bccea30515e" title="Source terms J.E in internal energy. For the ambipolar term E = ambiCoef * JxBxB=ambiCoef * B^2(&#45;J_pe..." alt="" coords="269,5,471,61"/>
+<area shape="rect" id="node3" href="$namespacemod__geometry.html#ae6552832949b076a9d4f2c96704077cc" title="Calculate divergence of a vector qvec within ixL." alt="" coords="275,85,465,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a96833c1c7b98a481ae044c7cf5ff50a7" title="handle small or negative internal energy" alt="" coords="263,137,477,178"/>
+</map>

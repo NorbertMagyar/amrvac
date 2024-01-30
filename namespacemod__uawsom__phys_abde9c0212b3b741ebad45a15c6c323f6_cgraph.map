@@ -1,0 +1,10 @@
+<map id="mod_uawsom_phys::sts_set_source_ambipolar" name="mod_uawsom_phys::sts_set_source_ambipolar">
+<area shape="rect" id="node1" title="Sets the sources for the ambipolar this is used for the STS method." alt="" coords="5,180,184,221"/>
+<area shape="rect" id="node2" href="$namespacemod__global__parameters.html#ab7c08882c0c573fe148b826cf02a2546" title="Cross product of two vectors." alt="" coords="279,5,459,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a494c1c304e5c6d33d0291746fb44928e" title="use cell&#45;center flux to get cell&#45;face flux and get the source term as the divergence of the flux" alt="" coords="279,71,459,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#ad976e94876cf05e46be128feb1e8c12a" title="multiply res by the ambipolar coefficient The ambipolar coefficient is calculated as &#45;uawsom_eta_ambi..." alt="" coords="232,137,507,163"/>
+<area shape="rect" id="node5" href="$namespacemod__fix__conserve.html#a8e321b6488183dd5e10247497d0d975e" title=" " alt="" coords="259,187,479,214"/>
+<area shape="rect" id="node6" href="$namespacemod__fix__conserve.html#af0fc91a69837c51f45b6d82fe884d75a" title=" " alt="" coords="263,238,475,265"/>
+<area shape="rect" id="node7" href="$namespacemod__uawsom__phys.html#a0e554c1e614af5de4936e2bae316e33d" title=" " alt="" coords="262,289,477,331"/>
+<area shape="rect" id="node8" href="$namespacemod__uawsom__phys.html#a357f08fde885230b86c26c2bd3651f31" title="get ambipolar electric field and the integrals around cell faces" alt="" coords="267,355,471,396"/>
+</map>

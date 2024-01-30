@@ -1,0 +1,7 @@
+<map id="mod_uawsom_phys::uawsom_get_csound" name="mod_uawsom_phys::uawsom_get_csound">
+<area shape="rect" id="node1" title="Calculate fast magnetosonic wave speed." alt="" coords="5,104,220,145"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a0296114426f32a7e4f676832e40aaf83" title="Compute 1/sqrt(1+v_A^2/c^2) for semirelativisitic uawsom, where v_A is the Alfven velocity." alt="" coords="268,5,483,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#ac52c70016a9c69769baaa5f4cb93fd47" title="Calculate the square of the thermal sound speed csound2 within ixO^L. csound2=gamma*p/rho." alt="" coords="268,71,483,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a51092ecf7f8113e4ad9d87ab7c9cdca2" title="Compute 2 times total magnetic energy." alt="" coords="268,136,483,177"/>
+<area shape="rect" id="node5" href="$namespacemod__uawsom__phys.html#ab4eeb47ae178f224c34d3c4978a023a1" title="Compute full magnetic field by direction." alt="" coords="268,201,483,243"/>
+</map>

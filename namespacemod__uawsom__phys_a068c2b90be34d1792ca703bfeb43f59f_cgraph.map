@@ -1,0 +1,4 @@
+<map id="mod_uawsom_phys::uawsom_get_temperature_from_etot" name="mod_uawsom_phys::uawsom_get_temperature_from_etot">
+<area shape="rect" id="node1" title="Calculate temperature=p/rho when in e_ the total energy is stored this does not check the values of u..." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a6cb0926b18c6bc0109eb264c019cfc6b" title="Compute evolving magnetic energy." alt="" coords="268,5,483,47"/>
+</map>

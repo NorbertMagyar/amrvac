@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::add_source_semirelativistic" name="mod_uawsom_phys::add_source_semirelativistic">
+<area shape="rect" id="node1" title="Source terms for semirelativistic uawsom." alt="" coords="5,35,188,76"/>
+<area shape="rect" id="node2" href="$namespacemod__global__parameters.html#ab7c08882c0c573fe148b826cf02a2546" title="Cross product of two vectors." alt="" coords="241,5,421,47"/>
+<area shape="rect" id="node3" href="$namespacemod__geometry.html#ae6552832949b076a9d4f2c96704077cc" title="Calculate divergence of a vector qvec within ixL." alt="" coords="236,71,425,98"/>
+</map>

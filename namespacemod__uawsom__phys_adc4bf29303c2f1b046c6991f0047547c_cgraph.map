@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::uawsom_add_source_geom_split" name="mod_uawsom_phys::uawsom_add_source_geom_split">
+<area shape="rect" id="node1" title=" " alt="" coords="5,27,220,69"/>
+<area shape="rect" id="node2" href="$comm__lib_8t.html#a49b49ea9ffbbadfe688e332921c4cddd" title="Exit MPI&#45;AMRVAC with an error message." alt="" coords="338,5,413,32"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#adbe6b4c4371017cf0ebf36e5aa3484ea" title="Calculate total pressure within ixO^L including magnetic pressure." alt="" coords="268,57,483,98"/>
+</map>

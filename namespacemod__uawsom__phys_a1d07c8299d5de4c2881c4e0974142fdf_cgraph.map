@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::add_source_b0split" name="mod_uawsom_phys::add_source_b0split">
+<area shape="rect" id="node1" title="Source terms after split off time&#45;independent magnetic field." alt="" coords="5,64,188,105"/>
+<area shape="rect" id="node2" href="$namespacemod__global__parameters.html#ab7c08882c0c573fe148b826cf02a2546" title="Cross product of two vectors." alt="" coords="283,5,463,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#ad976e94876cf05e46be128feb1e8c12a" title="multiply res by the ambipolar coefficient The ambipolar coefficient is calculated as &#45;uawsom_eta_ambi..." alt="" coords="236,71,511,98"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a0e554c1e614af5de4936e2bae316e33d" title=" " alt="" coords="266,123,481,164"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::add_source_ambipolar_internal_energy" name="mod_uawsom_phys::add_source_ambipolar_internal_energy">
+<area shape="rect" id="node1" title="Source terms J.E in internal energy. For the ambipolar term E = ambiCoef * JxBxB=ambiCoef * B^2(&#45;J_pe..." alt="" coords="5,49,208,105"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#ad976e94876cf05e46be128feb1e8c12a" title="multiply res by the ambipolar coefficient The ambipolar coefficient is calculated as &#45;uawsom_eta_ambi..." alt="" coords="256,5,531,32"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a0e554c1e614af5de4936e2bae316e33d" title=" " alt="" coords="286,57,501,98"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a51092ecf7f8113e4ad9d87ab7c9cdca2" title="Compute 2 times total magnetic energy." alt="" coords="286,122,501,163"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::uawsom_e_to_ei" name="mod_uawsom_phys::uawsom_e_to_ei">
+<area shape="rect" id="node1" title="Transform total energy to internal energy." alt="" coords="5,71,220,112"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a96833c1c7b98a481ae044c7cf5ff50a7" title="handle small or negative internal energy" alt="" coords="288,5,503,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a6cb0926b18c6bc0109eb264c019cfc6b" title="Compute evolving magnetic energy." alt="" coords="288,71,503,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#af59c3c5a6d4da79910f22705eb7f98f1" title="Compute wminus and wplus energy." alt="" coords="268,137,523,163"/>
+</map>

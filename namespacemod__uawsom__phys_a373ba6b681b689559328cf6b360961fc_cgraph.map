@@ -1,0 +1,4 @@
+<map id="mod_uawsom_phys::uawsom_e_to_ei_hde" name="mod_uawsom_phys::uawsom_e_to_ei_hde">
+<area shape="rect" id="node1" title="Transform hydrodynamic energy to internal energy." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a96833c1c7b98a481ae044c7cf5ff50a7" title="handle small or negative internal energy" alt="" coords="268,5,483,47"/>
+</map>

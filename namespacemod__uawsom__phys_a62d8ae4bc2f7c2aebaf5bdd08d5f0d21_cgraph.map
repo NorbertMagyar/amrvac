@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::get_ambipolar_electric_field" name="mod_uawsom_phys::get_ambipolar_electric_field">
+<area shape="rect" id="node1" title="get ambipolar electric field on cell edges" alt="" coords="5,27,191,69"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#ad976e94876cf05e46be128feb1e8c12a" title="multiply res by the ambipolar coefficient The ambipolar coefficient is calculated as &#45;uawsom_eta_ambi..." alt="" coords="239,5,513,32"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a0e554c1e614af5de4936e2bae316e33d" title=" " alt="" coords="269,57,483,98"/>
+</map>

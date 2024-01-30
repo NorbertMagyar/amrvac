@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::get_normalized_divb" name="mod_uawsom_phys::get_normalized_divb">
+<area shape="rect" id="node1" title="get dimensionless div B = |divB| * volume / area / |B|" alt="" coords="5,27,185,69"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a10e649f6ac8caa2528c20062536e7cff" title="Calculate div B within ixO." alt="" coords="233,5,448,32"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a51092ecf7f8113e4ad9d87ab7c9cdca2" title="Compute 2 times total magnetic energy." alt="" coords="233,57,448,98"/>
+</map>

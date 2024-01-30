@@ -1,0 +1,6 @@
+<map id="mod_uawsom_phys::uawsom_get_pthermal_origin" name="mod_uawsom_phys::uawsom_get_pthermal_origin">
+<area shape="rect" id="node1" title="Calculate thermal pressure=(gamma&#45;1)*(e&#45;0.5*m**2/rho&#45;b**2/2) within ixO^L." alt="" coords="5,71,220,112"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a58624419faeb6a329bfdaf496a2bdf70" title=" " alt="" coords="288,5,503,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#a6cb0926b18c6bc0109eb264c019cfc6b" title="Compute evolving magnetic energy." alt="" coords="288,71,503,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#af59c3c5a6d4da79910f22705eb7f98f1" title="Compute wminus and wplus energy." alt="" coords="268,137,523,163"/>
+</map>

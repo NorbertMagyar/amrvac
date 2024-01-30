@@ -1,0 +1,4 @@
+<map id="mod_uawsom_phys::uawsom_ei_to_e_semirelati" name="mod_uawsom_phys::uawsom_ei_to_e_semirelati">
+<area shape="rect" id="node1" title="Transform internal energy to total energy and velocity to momentum." alt="" coords="5,5,220,47"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a0a7a2220a689e101b8964370b4f0b4e5" title="Transform primitive variables into conservative ones." alt="" coords="268,5,483,47"/>
+</map>

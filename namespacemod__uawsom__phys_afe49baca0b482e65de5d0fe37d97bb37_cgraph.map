@@ -1,0 +1,5 @@
+<map id="mod_uawsom_phys::update_faces_contact" name="mod_uawsom_phys::update_faces_contact">
+<area shape="rect" id="node1" title="update faces using UCT contact mode by Gardiner and Stone 2005 JCP 205, 509" alt="" coords="5,39,209,80"/>
+<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a62d8ae4bc2f7c2aebaf5bdd08d5f0d21" title="get ambipolar electric field on cell edges" alt="" coords="257,5,443,47"/>
+<area shape="rect" id="node3" href="$namespacemod__uawsom__phys.html#ad281e8fcd04595e70a311c468d10051c" title="calculate eta J at cell edges" alt="" coords="260,71,440,112"/>
+</map>
