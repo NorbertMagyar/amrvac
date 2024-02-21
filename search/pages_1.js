@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['about_20the_20mpi_2damrvac_20documentation_6907',['About the MPI-AMRVAC documentation',['../md_doc_documentation.html',1,'']]],
-  ['acknowledgments_6908',['Acknowledgments',['../md_doc_acknowledgments.html',1,'']]],
-  ['adaptive_20mesh_20refinement_6909',['Adaptive Mesh Refinement',['../md_doc_amrstructure.html',1,'']]],
-  ['adding_20a_20physics_20module_20to_20mpi_2damrvac_6910',['Adding a physics module to MPI-AMRVAC',['../md_doc_addmodule.html',1,'']]],
-  ['advection_2dreaction_2ddiffusion_20module_6911',['Advection-reaction-diffusion module',['../md_doc_advection_reaction_diffusion.html',1,'']]],
-  ['alfven_20wing_20test_20problem_6912',['Alfven wing test problem',['../md_tests_mhd_alfvenwing_3D_alfvenwing.html',1,'']]],
-  ['amrvac_20datasets_20and_20yt_6913',['AMRVAC datasets and YT',['../md_doc_yt_usage.html',1,'']]],
-  ['auxiliary_20variables_20_28nw_2e_2e_2e_29_6914',['Auxiliary variables (nw...)',['../md_doc_mpiamrvac_nw.html',1,'']]]
+  ['about_20the_20mpi_2damrvac_20documentation_6871',['About the MPI-AMRVAC documentation',['../md_doc_documentation.html',1,'']]],
+  ['acknowledgments_6872',['Acknowledgments',['../md_doc_acknowledgments.html',1,'']]],
+  ['adaptive_20mesh_20refinement_6873',['Adaptive Mesh Refinement',['../md_doc_amrstructure.html',1,'']]],
+  ['adding_20a_20physics_20module_20to_20mpi_2damrvac_6874',['Adding a physics module to MPI-AMRVAC',['../md_doc_addmodule.html',1,'']]],
+  ['advection_2dreaction_2ddiffusion_20module_6875',['Advection-reaction-diffusion module',['../md_doc_advection_reaction_diffusion.html',1,'']]],
+  ['alfven_20wing_20test_20problem_6876',['Alfven wing test problem',['../md_tests_mhd_alfvenwing_3D_alfvenwing.html',1,'']]],
+  ['amrvac_20datasets_20and_20yt_6877',['AMRVAC datasets and YT',['../md_doc_yt_usage.html',1,'']]],
+  ['auxiliary_20variables_20_28nw_2e_2e_2e_29_6878',['Auxiliary variables (nw...)',['../md_doc_mpiamrvac_nw.html',1,'']]]
 ];

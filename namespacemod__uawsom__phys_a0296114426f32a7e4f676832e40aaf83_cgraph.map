@@ -1,4 +1,0 @@
-<map id="mod_uawsom_phys::uawsom_gamma_alfven" name="mod_uawsom_phys::uawsom_gamma_alfven">
-<area shape="rect" id="node1" title="Compute 1/sqrt(1+v_A^2/c^2) for semirelativisitic uawsom, where v_A is the Alfven velocity." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a1c8778079589ad9285fdb725b4681b82" title="Compute 1/(1+v_A^2/c^2) for semirelativistic uawsom, where v_A is the Alfven velocity." alt="" coords="268,5,483,47"/>
-</map>

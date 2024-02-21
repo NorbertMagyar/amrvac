@@ -1,4 +1,0 @@
-<map id="mod_uawsom_phys::uawsom_gamma2_alfven" name="mod_uawsom_phys::uawsom_gamma2_alfven">
-<area shape="rect" id="node1" title="Compute 1/(1+v_A^2/c^2) for semirelativistic uawsom, where v_A is the Alfven velocity." alt="" coords="5,5,220,47"/>
-<area shape="rect" id="node2" href="$namespacemod__uawsom__phys.html#a51092ecf7f8113e4ad9d87ab7c9cdca2" title="Compute 2 times total magnetic energy." alt="" coords="268,5,483,47"/>
-</map>
