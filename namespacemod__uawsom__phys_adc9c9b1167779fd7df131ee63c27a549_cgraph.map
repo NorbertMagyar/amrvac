@@ -1,6 +1,7 @@
 <map id="mod_uawsom_phys::uawsom_handle_small_values_origin" name="mod_uawsom_phys::uawsom_handle_small_values_origin">
-<area shape="rect" id="node1" title=" " alt="" coords="5,71,220,112"/>
-<area shape="rect" id="node2" href="$namespacemod__small__values.html#a327e5c8e043106015f50a464cd16fce8" title=" " alt="" coords="281,5,469,47"/>
-<area shape="rect" id="node3" href="$namespacemod__small__values.html#ae1bc437ca6fe653ef9e9249e09d0f4aa" title=" " alt="" coords="281,71,469,112"/>
-<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a6cb0926b18c6bc0109eb264c019cfc6b" title="Compute evolving magnetic energy." alt="" coords="268,136,483,177"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,104,220,145"/>
+<area shape="rect" id="node2" href="$namespacemod__small__values.html#a327e5c8e043106015f50a464cd16fce8" title=" " alt="" coords="301,5,489,47"/>
+<area shape="rect" id="node3" href="$namespacemod__small__values.html#ae1bc437ca6fe653ef9e9249e09d0f4aa" title=" " alt="" coords="301,71,489,112"/>
+<area shape="rect" id="node4" href="$namespacemod__uawsom__phys.html#a6cb0926b18c6bc0109eb264c019cfc6b" title="Compute evolving magnetic energy." alt="" coords="288,136,503,177"/>
+<area shape="rect" id="node5" href="$namespacemod__uawsom__phys.html#af59c3c5a6d4da79910f22705eb7f98f1" title="Compute wminus and wplus energy." alt="" coords="268,202,523,229"/>
 </map>
