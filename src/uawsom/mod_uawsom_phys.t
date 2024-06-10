@@ -200,7 +200,7 @@ module mod_uawsom_phys
   logical, public :: clean_initial_divb     = .false.
 
   !> Base density ratio, zeta0
-  double precision, public, protected :: zeta0=5.d0 
+  double precision, public, protected :: zeta0=10.d0 
   
   !> Filling factor constant
   double precision, public, protected :: ff=0.1d0 
@@ -1226,7 +1226,7 @@ contains
           where(tmp(ixO^S) < small_e) flag(ixO^S,e_) = .true.
         else
           tmp(ixO^S)=w(ixO^S,e_)-&
-              uawsom_kin_en(w,ixI^L,ixO^L)-uawsom_mag_en(w,ixI^L,ixO^L)
+              uawsom_kin_en(w,ixI^L,ixO^L)-uawsom_mag_en(w,ixI^L,ixO^L)-uawsom_w_en(w,ixI^L,ixO^L)
           if(has_equi_pe0) then
             tmp(ixO^S) = tmp(ixO^S)+block%equi_vars(ixO^S,equi_pe0_,0)*inv_gamma_1
           endif
@@ -1660,8 +1660,9 @@ contains
               where(flag(ixO^S,e_))
                 w(ixO^S,e_) = tmp2(ixO^S)+&
                    uawsom_kin_en(w,ixI^L,ixO^L)+&
-                   uawsom_mag_en(w,ixI^L,ixO^L)
-              end where
+                   uawsom_mag_en(w,ixI^L,ixO^L)+&
+                   uawsom_w_en(w,ixI^L,ixO^L)
+             end where
               if(uawsom_solve_eaux) then
                 where(flag(ixO^S,e_))
                   w(ixO^S,eaux_)=tmp2(ixO^S)
@@ -1684,14 +1685,16 @@ contains
             if(.not.uawsom_internal_e) then
               w(ixI^S,e_)=w(ixI^S,e_)&
                           -uawsom_kin_en(w,ixI^L,ixI^L)&
-                          -uawsom_mag_en(w,ixI^L,ixI^L)
+                          -uawsom_mag_en(w,ixI^L,ixI^L)&
+                          -uawsom_w_en(w,ixI^L,ixI^L)
             end if
             call small_values_average(ixI^L, ixO^L, w, x, flag, e_)
              ! convert back
             if(.not.uawsom_internal_e) then
               w(ixI^S,e_)=w(ixI^S,e_)&
                           +uawsom_kin_en(w,ixI^L,ixI^L)&
-                          +uawsom_mag_en(w,ixI^L,ixI^L)
+                          +uawsom_mag_en(w,ixI^L,ixI^L)&
+                          +uawsom_w_en(w,ixI^L,ixI^L)
             end if
             ! eaux
             if(uawsom_solve_eaux) then
@@ -1709,7 +1712,8 @@ contains
             else
               w(ixO^S,p_)=gamma_1*(w(ixO^S,e_)&
                           -uawsom_kin_en(w,ixI^L,ixO^L)&
-                          -uawsom_mag_en(w,ixI^L,ixO^L))
+                          -uawsom_mag_en(w,ixI^L,ixO^L)&
+                          -uawsom_w_en(w,ixI^L,ixO^L))
               if(uawsom_solve_eaux) w(ixO^S,paux_)=w(ixO^S,eaux_)*gamma_1
             end if
           end if
@@ -2375,8 +2379,7 @@ contains
         pth(ixO^S)=gamma_1*(w(ixO^S,e_)&
            - uawsom_kin_en(w,ixI^L,ixO^L)&
            - uawsom_mag_en(w,ixI^L,ixO^L)&
-           - uawsom_w_en(w,ixI^L,ixO^L))
-           
+           - uawsom_w_en(w,ixI^L,ixO^L)) 
       end if
       if(has_equi_pe0) then
         pth(ixO^S) = pth(ixO^S) + block%equi_vars(ixO^S,equi_pe0_,b0i)
@@ -2483,7 +2486,8 @@ contains
     double precision, intent(out):: res(ixI^S)
     res(ixO^S)=(gamma_1*(w(ixO^S,e_)&
            - uawsom_kin_en(w,ixI^L,ixO^L)&
-           - uawsom_mag_en(w,ixI^L,ixO^L)))/w(ixO^S,rho_)
+           - uawsom_mag_en(w,ixI^L,ixO^L)&
+           - uawsom_w_en(w,ixI^L,ixO^L)))/w(ixO^S,rho_)
   end subroutine uawsom_get_temperature_from_etot
 
   !> Calculate temperature from hydrodynamic energy
@@ -3426,7 +3430,7 @@ contains
     logical, intent(in) :: energy,qsourcesplit
     logical, intent(inout) :: active
     double precision                :: v(ixI^S,1:ndir)
-    double precision                :: divv(ixI^S),Lperp(ixI^S),radius(ixI^S),zeta(ixI^S),pth(ixI^S),B(ixI^S,3)
+    double precision                :: divv(ixI^S),Lperp(ixI^S),R(ixI^S),radius(ixI^S),zeta(ixI^S),pth(ixI^S),B(ixI^S,3)
 
     integer :: ix1
 
@@ -3436,7 +3440,7 @@ contains
       B(ixO^S,1:ndir)=w(ixO^S,mag(1:ndir))
     end if
 
-    radius(ixO^S) = 1.d8/unit_length * (B(ixO^S,1)/Busr)**0.5d0
+    radius(ixO^S) = 1.d8/unit_length * (Busr/B(ixO^S,1))**0.5d0
 
     if(qsourcesplit .eqv. .false.) then
       active = .true.
@@ -3459,14 +3463,14 @@ contains
     call get_zeta(w,x,ixI^L,ixI^L,zeta)
 
     Lperp(ixO^S) = (zeta(ixO^S) + 1.d0 - ff)**(3.d0/2.d0)/(1.d0 - ff**(5.d0/2.d0))/&
-                   (zeta(ixO^S) - 1.d0)*3.1622776*(ff*dpi)**0.5d0*radius(ixO^S)/min(pth(ixO^S),1.d0)
-
-    w(ixO^S,e_) = w(ixO^S,e_)-qdt*(zeta(ixO^S)-1.d0)/(zeta(ixO^S)+1.d0)*(zeta(ixO^S)+1.d0)*(wCT(ixO^S,wplus_) + wCT(ixO^S,wminus_))/4.d0*divv(ixO^S)
+                   (zeta(ixO^S) - 1.d0)*3.1622776*(ff*dpi)**0.5d0*radius(ixO^S)!/min(pth(ixO^S),1.d0)
     
+    w(ixO^S,e_) = w(ixO^S,e_)-qdt*(zeta(ixO^S)-1.d0)/(zeta(ixO^S)+1.d0)*(zeta(ixO^S)+1.d0)*(wCT(ixO^S,wplus_) + wCT(ixO^S,wminus_))/4.d0*divv(ixO^S)
+ 
     w(ixO^S,wplus_) = w(ixO^S,wplus_) - qdt*(divv(ixO^S)*wCT(ixO^S,wplus_)/2.d0 &
-                      +wCT(ixO^S,wplus_)**(3.d0/2.d0)/wCT(ixO^S,rho_)**0.5d0/Lperp(ixO^S))
+                      + wCT(ixO^S,wplus_)**(3.d0/2.d0)/wCT(ixO^S,rho_)**0.5d0/Lperp(ixO^S))
     w(ixO^S,wminus_) = w(ixO^S,wminus_) - qdt*(divv(ixO^S)*wCT(ixO^S,wminus_)/2.d0 &
-                      +wCT(ixO^S,wminus_)**(3.d0/2.d0)/wCT(ixO^S,rho_)**0.5d0/Lperp(ixO^S))
+                      + wCT(ixO^S,wminus_)**(3.d0/2.d0)/wCT(ixO^S,rho_)**0.5d0/Lperp(ixO^S))
 
   end subroutine w_add_source
 
@@ -3547,7 +3551,10 @@ contains
     double precision, intent(in)  :: w(ixI^S,1:nw),x(ixI^S,1:ndim)
     double precision, intent(out) :: zeta(ixI^S)
     
-    zeta(ixI^S) = zeta0*exp(-(x(ixI^S,1)-xprobmin1)/6.957d10*unit_length/5.d0)  
+    zeta(ixI^S) = zeta0*exp(-(x(ixI^S,1)-xprobmin1)/6.957d10*unit_length/5.d0)
+    where(zeta(ixI^S) < 1.d0)
+      zeta(ixI^S) = 1.d0
+    end where
 
   end subroutine get_zeta
 
